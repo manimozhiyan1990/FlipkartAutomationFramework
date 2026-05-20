@@ -1,4 +1,4 @@
-package base;
+package utils;
 
 import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
@@ -9,14 +9,14 @@ import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
 
-public class ReusableMethods {
+public class ReusableUtils {
     protected WebDriver driver;
     WebDriverWait wait;
     JavascriptExecutor js;
     Actions action;
     Select select;
 
-    public ReusableMethods(WebDriver driver) {
+    public ReusableUtils(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver,Duration.ofSeconds(20));
         this.js = (JavascriptExecutor)driver;

@@ -13,7 +13,7 @@ public class DriverFactory {
 
     public static WebDriver driver;
 
-    public static WebDriver initDriver() throws IOException {
+    public static void initDriver() throws IOException {
 
         ConfigReader config = new ConfigReader();
 
@@ -44,7 +44,6 @@ public class DriverFactory {
 
         driver.get(config.getUrl());
 
-        return driver;
     }
 
     public static WebDriver getDriver() {

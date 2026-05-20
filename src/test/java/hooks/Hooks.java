@@ -3,6 +3,8 @@ package hooks;
 import driver.DriverFactory;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
+import utils.ScreenshotUtils;
 
 import java.io.IOException;
 
@@ -15,8 +17,13 @@ public class Hooks {
     }
 
     @After
-    public void tearDown() {
+    public void tearDown(Scenario scenario) throws IOException {
 
-        DriverFactory.quitDriver();
+        if (scenario.isFailed()) {
+
+            ScreenshotUtils.captureScreenshot(scenario.getName());
+        }
+
+            DriverFactory.quitDriver();
+        }
     }
-}
